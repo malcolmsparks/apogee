@@ -1,7 +1,6 @@
 (ns examples.charts
   (:require [apogee.charts :as charts]
-	    [apogee.svg :as svg]
-	    [apogee.util :as util]))
+	    [apogee.svg :as svg]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; BASIC CHART EXAMPLES
@@ -15,7 +14,7 @@
 	 (charts/add-points [x y] :transpose-data? true)))))
 
 (defn ^:export sin-cos-plot []
-  (let [x (util/range -5 5 0.05)
+  (let [x (range -5 5 0.05)
 	y1 (map #(Math/cos %) x)
 	y2 (map #(Math/sin %) x)]
     (charts/emit-svg

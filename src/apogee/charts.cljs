@@ -35,7 +35,7 @@
 		      major-grid-color minor-grid-color
 		      major-grid-width minor-grid-width]}]
   (let [grid-x-space (/ width grid-lines)]
-    (for [i (util/range 1 grid-lines)]
+    (for [i (range 1 grid-lines)]
       (-> (svg/line (* i grid-x-space) 0 (* i grid-x-space) height)
 	  (svg/style :stroke (if (even? i) major-grid-color minor-grid-color)
 		 :stroke-width (if (even? i) major-grid-width minor-grid-width))))))
@@ -46,7 +46,7 @@
 		      major-grid-color minor-grid-color
 		      major-grid-width minor-grid-width]}]
   (let [grid-y-space (/ height grid-lines)]
-    (for [i (util/range 1 grid-lines)]
+    (for [i (range 1 grid-lines)]
       (-> (svg/line 0 (* i grid-y-space) width (* i grid-y-space))
 	  (svg/style :stroke (if (even? i) major-grid-color minor-grid-color)
 		 :stroke-width (if (even? i) major-grid-width minor-grid-width))))))
@@ -57,7 +57,7 @@
 		      axis-font-family axis-font-size
 		      axis-number-format]}]
   (let [grid-x-space (/ width grid-lines)]
-    (for [i (util/range 0 (inc grid-lines)) :when (even? i)]
+    (for [i (range 0 (inc grid-lines)) :when (even? i)]
       (-> (svg/text {:x (* i grid-x-space) :y (+ 20 height)}
 		(util/format axis-number-format
 			(svg/translate-value (* i grid-x-space)
@@ -73,7 +73,7 @@
 		      axis-font-family axis-font-size
 		      axis-number-format]}]
   (let [grid-y-space (/ height grid-lines)]
-    (for [i (util/range 1 (inc grid-lines)) :when (even? i)]
+    (for [i (range 1 (inc grid-lines)) :when (even? i)]
       (-> (svg/text {:x 0 :y (- height (* i grid-y-space))}
 		(util/format axis-number-format
 			(svg/translate-value (* i grid-y-space)
